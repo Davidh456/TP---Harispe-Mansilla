@@ -21,19 +21,17 @@ public class OrdenarMergeSort extends OrdenadorService{
     
     public ArregloDied guia(ArregloDied arr,int ini, int fin){
         int centro;
-        Long[] temp3= new Long[10];
-        Long[] temp2= new Long[10];
-        Long[] temp= new Long[10];
+
         if (ini<fin)
         {
             centro = (ini+fin)/2;
             guia(arr,ini,centro);
             for(int i=0;i<fin;i++){
-                temp2[i]=arr.get(i).valorOrdenamiento();
+              
             }
             guia(arr,centro+1, fin);
             for(int i=0;i<fin;i++){
-                temp3[i]=arr.get(i).valorOrdenamiento();
+               
             }
             arr= merge(arr, ini, centro, fin);
         }
@@ -44,14 +42,11 @@ public class OrdenarMergeSort extends OrdenadorService{
 
     private ArregloDied merge(ArregloDied arr, int ini, int centro, int fin) {
         ArregloDied temp= new ArregloDied(arr.tamanio());
-        Long temp2;
-        Long temp3;
+        
         int i,d,f;
         i=f=ini;
         d=centro+1;
         while (i<=centro && d<=fin){
-                temp2=arr.get(d).valorOrdenamiento();
-                temp3=arr.get(i).valorOrdenamiento();
             if(arr.mayorIgual(d, i)){
                 temp.agregarEnPosicion(f, arr.get(i));
                 f++;
